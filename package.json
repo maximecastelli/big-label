@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/maximecastelli/big-label/issues"
   },
-  "homepage": "https://github.com/maximecastelli/big-label#readme"
+  "homepage": "https://github.com/maximecastelli/big-label#readme",
+  "devDependencies": {
+    "electron": "^2.0.7"
+  }
 }
