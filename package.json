@@ -1,0 +1,19 @@
+{
+  "name": "big-label",
+  "version": "1.0.0",
+  "description": "Label maker for BIG-Lab",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximecastelli/big-label.git"
+  },
+  "author": "Maxime Castelli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maximecastelli/big-label/issues"
+  },
+  "homepage": "https://github.com/maximecastelli/big-label#readme"
+}
