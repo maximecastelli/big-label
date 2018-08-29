@@ -23,6 +23,7 @@
     "electron-rebuild": "^1.8.2"
   },
   "dependencies": {
+    "angular": "^1.7.2",
     "font-manager": "^0.3.0"
   }
 }
