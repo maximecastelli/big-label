@@ -1,14 +1,27 @@
 var app = require('electron').remote;
 var dialog = app.dialog;
 var fs = require('fs');
-
-console.log("LOADED");
-
+var tm = require('./src/templateManager');
+var ui = require('./src/UIManager');
 const fontManager = require('font-manager');
+
 var fonts = fontManager.getAvailableFontsSync();
 console.log('system fonts loaded…');
 
+
 ///
+// SHow
+var tmp = new tm();
+tmp.setTemplateList();
+//document.getElementById('workspace').src = tmp.getTemplatePath();
+tmp.loadTemplate();
+//
+//SETUP UI
+//
+var gui = new ui(tmp);
+gui.scanTemplate();
+//console.log(ui.scanTemplate());
+
 //Export file
 
 document.getElementById('export').onclick = () =>{

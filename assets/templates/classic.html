@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Classic</title>
+    <style media="screen">
+      /* CSS pour le template */
+      h1{
+        font-size: 13.5pt;
+        margin: 2mm 0;
+      }
+      h2{
+        font-size: 13.5pt;
+      }
+      h3{
+        font-size: 5.4pt;
+        margin: 0;
+      }
+      p{
+        font-size: 7.2pt;
+        line-height: 9pt;
+      }
+
+      .main{
+        display: flex;
+        justify-content:space-around;
+        width: 126.792mm;
+        height: 66mm;
+        border: solid black .85pt;
+
+      }
+      .main div:not(.title){
+        border: solid black .85pt;
+        padding: 2mm 1.75mm 2mm 1.75mm;
+      }
+      .col{
+        width: 39.799mm;
+        height: 62.077mm;
+        margin-top: 2mm;
+        margin-bottom: 2mm;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .col-1, .col-2{
+        margin-left: 2mm;
+
+      }
+      .col-3, .col-2{
+        margin-right: 2mm;
+      }
+      /*-- EXCEPTIONS --*/
+      .description p{
+        margin:2mm;
+      }
+
+    </style>
+  </head>
+  <body>
+    <page class="recto">
+      <!-- Blocs Recto -->
+      <main class="main">
+        <section class="col col-1">
+          <div class="title">
+            <h1>Nom</h1>
+          </div>
+          <div class="collaborator">
+            <h3>Collaborator</h3>
+            <p></p>
+
+          </div>
+        </section>
+        <section class="col col-2">
+          <div class="description">
+            <h3>Description</h3>
+            <p>Eau-de-vie de grains aromatisée typique du nord de l’Europe continentale</p>
+            <div class="ingredients">
+              <h3>Ingredients</h3>
+              <p></p>
+            </div>
+
+          </div>
+        </section>
+        <section class="col col-3">
+          <div class="abv">
+            <h3>ABV</h3>
+            <p></p>
+          </div>
+          <div class="details">
+            <h3>Production date</h3>
+            <p></p>
+            <div class="batch">
+              <h3>Batch number</h3>
+              <p></p>
+              <div class="content">
+                <h3>Content</h3>
+                <p></p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+    </page>
+    <page class="verso">
+      <!-- Blocs Verso -->
+    </page>
+  </body>
+</html>
