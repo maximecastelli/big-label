@@ -1,8 +1,16 @@
+window.$ = window.jQuery = require('jquery');
+
 var app = require('electron').remote;
 var dialog = app.dialog;
 var fs = require('fs');
+const os = require('os');
+const ipc = app.ipcMain;
+const shell = app.shell;
+
 var tm = require('./src/templateManager');
 var ui = require('./src/UIManager');
+
+
 const fontManager = require('font-manager');
 
 var fonts = fontManager.getAvailableFontsSync();
@@ -20,6 +28,8 @@ tmp.loadTemplate();
 //
 var gui = new ui(tmp);
 gui.scanTemplate();
+gui.create($('#ui'));
+
 //console.log(ui.scanTemplate());
 
 //Export file

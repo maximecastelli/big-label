@@ -30,12 +30,21 @@ templateManager.prototype.setTemplateList = function(){
 templateManager.prototype.loadTemplate = function (){
 
   //var webview = '<webview src="'+ getTemplatePath() +'" style="display:inline-flex; width:640px; height:480px"></webview>'
-  var wv = document.createElement('webview');
-  wv.src = "file://"+ __dirname + '/../assets/templates/' + this.getTemplate();
-  wv.autosize = true;
+  //var wv = document.createElement('webview');
+  var wv = document.createElement('iframe');
+  //wv.src = "file://"+ __dirname + '/../assets/templates/' + this.getTemplate();
+  wv.src = "file://" + this.getTemplatePath();
+  wv.height = '100%';
+  wv.width = '100%';
+  //wv.autosize = true;
   wv.id = 'workspace-canvas';
   console.log(wv.src);
   document.getElementById('workspace').appendChild(wv);
+
+}
+
+templateManager.prototype.write = function(selector , content){
+  //Access iframe and link to UIManager
 
 }
 
@@ -49,8 +58,8 @@ templateManager.prototype.getTemplate = function(){
   return n;
 }
 templateManager.prototype.getTemplatePath = function(){
-  var tmp = document.getElementById('templates');
-  var path = './assets/templates/' + tmp.options[tmp.selectedIndex].innerHTML;
+  //var tmp = document.getElementById('templates');
+  var path = __dirname + '/../assets/templates/' + this.getTemplate();
   return path;
 }
 
