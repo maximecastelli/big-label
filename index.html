@@ -6,21 +6,24 @@
       <link rel="stylesheet" href="src/style.css">
     </head>
     <body>
-      <h1>BIG-LAB(EL)</h1>
-      Nous utilisons Node <script>document.write(process.versions.node)</script>,
-      Chrome <script>document.write(process.versions.chrome)</script>,
-      et Electron <script>document.write(process.versions.electron)</script>.
+
+      <!-- INPUT -->
       <div id="ui">
-
+        <!-- Select Template -->
+        <select name="templates" id="templates">
+        </select>
       </div>
-      <select name="templates" id="templates">
-      </select>
 
+      <!-- OUTPUT -->
       <div id="workspace"></div>
       <button type="button" name="export" id="export">Exporter</button>
+      <button type="button" name="print" id="print">print</button>
 
 
-
+      <script type="text/javascript">
+        require('./src/renderer.js');
+      </script>
       <script type="text/javascript" src="src/script.js"></script>
+
     </body>
   </html>

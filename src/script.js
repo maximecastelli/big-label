@@ -1,11 +1,18 @@
 window.$ = window.jQuery = require('jquery');
 
+
+
 var app = require('electron').remote;
 var dialog = app.dialog;
 var fs = require('fs');
-const os = require('os');
-const ipc = app.ipcMain;
-const shell = app.shell;
+const os = require('os')
+const ipc = app.ipcMain
+const shell = app.shell
+
+const path = require('path')
+const url = require('url')
+
+
 
 var tm = require('./src/templateManager');
 var ui = require('./src/UIManager');
@@ -34,6 +41,69 @@ gui.create($('#ui'));
 
 //Export file
 
+ipc.on('print', function(event){
+  const pdfpath = path.join(os.tmpdir(), 'print.pdf');
+  //var content = "Hello";
+  //const win = BrowserWindow.fromWebContents(event.sender);
+  const win = document.getElementById('workspace-canvas');
+  console.log(win);
+  /*
+  win.webContents.executeJavaScript(`
+    require('electron').ipcRenderer.send('gpu', document.body.innerHTML);
+  `);*/
+  //const frame = win.querySelectorAll('#workspace iframe')[0];
+  //console.log(frame);
+
+  win.printToPDF({
+    marginsType: 0,
+    printBackground: true,
+    printSelectionOnly: false,
+    landscape: true,
+    pageSize: {height:280000, width:76000}
+  }, function(error , data){
+  //document.getElementById('#workspace').find('iframe').webContents.printToPDF({}, function(error , data){
+    if(error)return console.log(error.message);
+    console.log(win);
+    fs.writeFile(pdfpath, data, (err) => {
+      if (err) console.log(err);
+      //alert("votre fichier à été correctement enregistré");
+      shell.openExternal('file://'+ pdfpath);
+      event.sender.send('wrote', pdfpath);
+    });
+  });
+
+});
+/*
+ipc.on('print', function(event){
+  //const path = ;
+  dialog.showSaveDialog((fileName) =>{
+    if(fileName === undefined){
+      alert("Nom de fichier non-défini");
+      return;
+    }
+
+    //var content = "Hello";
+    const win = bw.fromWebContents(event.sender);
+
+    win.webContents.printToPDF({}, function(error , data){
+      if(error)return console.log(error.message);
+
+      fs.writeFile(fileName+".pdf", data, (err) => {
+        if (err) console.log(err);
+        alert("votre fichier à été correctement enregistré");
+        shell.openExternal('file://'+ fileName+".pdf");
+        event.sender.send('wrote', fileName+".pdf");
+      });
+    });
+  });
+});
+*/
+
+
+//Export file
+
+
+
 document.getElementById('export').onclick = () =>{
   dialog.showSaveDialog((fileName) =>{
     if(fileName === undefined){
@@ -46,6 +116,7 @@ document.getElementById('export').onclick = () =>{
     fs.writeFile(fileName, content, (err) => {
       if (err) console.log(err);
       alert("votre fichier à été correctement enregistré");
-    } )
+    });
+
   });
 };

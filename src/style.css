@@ -1,0 +1,16 @@
+body{
+  font-family: Helvetica sans-serif;
+}
+/* UI */
+#ui{
+  height: 240px;
+}
+
+#ui #interface page{
+  display: flex;
+  justify-content: space-between;
+}
+
+#ui #interface page section{
+  width: fit-content;
+}

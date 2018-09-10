@@ -1,5 +1,18 @@
 const {app, BrowserWindow} = require('electron')
 
+const electron = require('electron')
+//const app = electron.app
+//const bw = electron.BrowserWindow
+
+const os = require('os')
+const ipc = electron.ipcMain
+const shell = electron.shell
+const fs = require('fs');
+
+const path = require('path')
+const url = require('url')
+
+
   // Gardez une reference globale de l'objet window, si vous ne le faites pas, la fenetre sera
   // fermee automatiquement quand l'objet JavaScript sera garbage collected.
   let win
@@ -44,3 +57,13 @@ const {app, BrowserWindow} = require('electron')
       createWindow()
     }
   })
+
+
+//Export
+
+
+
+
+ipc.on('gpu', (_, gpu) => {
+  console.log(gpu)
+})

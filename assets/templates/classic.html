@@ -3,20 +3,85 @@
   <head>
     <meta charset="utf-8">
     <title>Classic</title>
-    <style media="screen">
+    <style>
       /* CSS pour le template */
+      @media print  {
+        body{
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        h1{
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 13.5pt;
+          margin: 2mm 0;
+        }
+        h2{
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 13.5pt;
+        }
+        h3{
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 5.4pt;
+          margin: 0;
+        }
+        p{
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 7.2pt;
+          line-height: 9pt;
+        }
+
+        .main{
+          display: flex;
+          justify-content:space-around;
+          width: 126.792mm;
+          height: 66mm;
+          border: solid black .85pt;
+
+        }
+        .main div:not(.title){
+          border: solid black .85pt;
+          padding: 2mm 1.75mm 2mm 1.75mm;
+        }
+        .col{
+          width: 39.799mm;
+          height: 62.077mm;
+          margin-top: 2mm;
+          margin-bottom: 2mm;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+        }
+        .col-1, .col-2{
+          margin-left: 2mm;
+
+        }
+        .col-3, .col-2{
+          margin-right: 2mm;
+        }
+        /*-- EXCEPTIONS --*/
+        .description p{
+          margin:2mm;
+        }
+      }
+
+      body{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
       h1{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 13.5pt;
         margin: 2mm 0;
       }
       h2{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 13.5pt;
       }
       h3{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 5.4pt;
         margin: 0;
       }
       p{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 7.2pt;
         line-height: 9pt;
       }

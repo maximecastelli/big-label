@@ -20,12 +20,15 @@ FIELD TYPES :
 
 // First setup
 const iframeHolder = $("#workspace");
+var template;
+var wv;
 
 function UIManager(tmp){
-  this.template = tmp;
+  template = tmp;
+  wv = tmp.wv;
   this.scan;
   console.log('Create UI');
-
+  console.log(wv);
   this.recto;
   this.verso;
   this.interface = document.createElement('div');
@@ -41,7 +44,7 @@ UIManager.prototype.scanTemplate = function(){
       if (!err) {
           this.scan = document.createElement('html');
           $(this.scan).append(data).html();
-          console.log(tmp);
+          //console.log(tmp);
           this.recto = new face('recto', $(this.scan).find('.recto'));
           this.verso = new face('verso', $(this.scan).find('.verso'));
           this.recto.create(this.interface);
@@ -97,6 +100,10 @@ var section = function(name, data, target){
   this.data = data;
 
   this.display = document.createElement('section');
+
+  var t = document.createElement('h3');
+  t.innerHTML = this.name;
+  this.display.appendChild(t);
   this.fields = this.setFields();
 
 }
@@ -116,14 +123,15 @@ section.prototype.setFields = function(){
     //console.log(f[i]);
     //console.log($(f[i]).find(':header')[0]);
     var t = iframeHolder.find('iframe').contents().find('div[name='+$(f[i]).attr('name')+']');//.find(f[i].name).find('.edit')[0];
-    console.log(t);
-    out[i] = new field(f[i].getAttribute('name') , $(f[i]).find(':header')[0].innerText , f[i].getAttribute('type'), $(t).find('.edit')[0] );
+    //console.log(t);
+    out[i] = new field(f[i].getAttribute('name') , $(f[i]).find(':header')[0].innerText , f[i].getAttribute('type'), 'edit' );
     this.display.appendChild(out[i].make());
   }
   return out;
 }
 
 section.prototype.create = function(loc){
+
   loc.appendChild(this.display);
 }
 
@@ -132,6 +140,13 @@ var field = function(id, label, type, target){
   this.label = label;
   this.type = type;
   this.target = target;
+  console.log(
+    'Creating new field:\n'+
+    'id => ' + id + '\n' +
+    'label => ' + label + '\n' +
+    'type => ' + type + '\n' +
+    'target => ' + target + '\n'
+  );
 
 }
 
@@ -142,9 +157,10 @@ field.prototype.make = function(){
   var l = document.createElement('label');
   var i = document.createElement('input');
   l.name = this.id;
+  l.id = this.id;
   switch(this.type){
     case 'title':
-      console.log("TITLE field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
+      //console.log("TITLE field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
       i.type = "text";
       i.label = this.label;
       i.class = this.id + " " + this.type;
@@ -195,7 +211,7 @@ field.prototype.make = function(){
       i.setAttribute('target', this.target);
       l.innerText = this.label;
       l.appendChild(i);
-      console.log("FIG field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
+      //console.log("FIG field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
     case 'picker':
       var i = document.createElement('input');
@@ -204,10 +220,10 @@ field.prototype.make = function(){
       i.setAttribute('target', this.target);
       l.innerText = this.label;
       l.appendChild(i);
-      console.log("PICKER field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
+      //console.log("PICKER field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
     default:
-      console.log("field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
+      //console.log("field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
   }
   this.attach(i,this.target);
@@ -221,18 +237,18 @@ field.prototype.attach = function(input, target){
 
   $(input).keyup(function(){
     var t = $(this).val();
-    console.log("writing "+ $(this).val() +" in "+ $(target).parent().attr('name'));
+    console.log("target: "+ $(this).parent().attr('id') + '.' + target);
 
-    console.log("target: "+target);
-
-    $(target).html( $(this).val());
+    //$(target).html( $(this).val());
+    template.write($(this).parent().attr('id'), $(this).val());
 
   });
 
 }
 
-field.prototype.setTemplate = function(tmp){
-  this.template = tmp;
+UIManager.prototype.setTemplate = function(tmp){
+  template = tmp;
+  wv = tmp.wv;
 }
 
 module.exports = UIManager;
