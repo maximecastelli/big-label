@@ -40,6 +40,7 @@ function UIManager(tmp){
 UIManager.prototype.scanTemplate = function(){
   var path = tmp.getTemplatePath();
   var scan;
+  console.log(path);
   fs.readFile(path, {encoding: 'utf-8'}, function(err,data){
       if (!err) {
           this.scan = document.createElement('html');
@@ -58,6 +59,8 @@ UIManager.prototype.scanTemplate = function(){
 UIManager.prototype.create = function(loc){
   //
   loc.append(this.interface);
+
+  
 }
 
 UIManager.prototype.link = function(template){
@@ -102,8 +105,20 @@ var section = function(name, data, target){
   this.display = document.createElement('section');
 
   var t = document.createElement('h3');
+  var cb = document.createElement('input');
+  var d = document.createElement('div');
+  d.setAttribute('class', 'section-title '+ this.name);
+
+
+  cb.setAttribute('type', 'checkbox');
+  cb.setAttribute('class', 'section-toggle');
+
   t.innerHTML = this.name;
-  this.display.appendChild(t);
+
+  d.appendChild(t);
+  d.appendChild(cb);
+  this.display.appendChild(d);
+
   this.fields = this.setFields();
 
 }
@@ -124,7 +139,7 @@ section.prototype.setFields = function(){
     //console.log($(f[i]).find(':header')[0]);
     var t = iframeHolder.find('iframe').contents().find('div[name='+$(f[i]).attr('name')+']');//.find(f[i].name).find('.edit')[0];
     //console.log(t);
-    out[i] = new field(f[i].getAttribute('name') , $(f[i]).find(':header')[0].innerText , f[i].getAttribute('type'), 'edit' );
+    out[i] = new field(f[i].getAttribute('name') , f[i].getAttribute('name') , f[i].getAttribute('type'), 'edit' );
     this.display.appendChild(out[i].make());
   }
   return out;
@@ -134,6 +149,9 @@ section.prototype.create = function(loc){
 
   loc.appendChild(this.display);
 }
+
+
+
 
 var field = function(id, label, type, target){
   this.id = id;
@@ -157,7 +175,9 @@ field.prototype.make = function(){
   var l = document.createElement('label');
   var i = document.createElement('input');
   l.name = this.id;
-  l.id = this.id;
+  form.id = this.id;
+  i.required = true;
+
   switch(this.type){
     case 'title':
       //console.log("TITLE field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
@@ -166,7 +186,7 @@ field.prototype.make = function(){
       i.class = this.id + " " + this.type;
       i.setAttribute('target', this.target);
       l.innerText = this.label;
-      l.appendChild(i);
+
     break;
     case 'long':
       i.type = "textfield";
@@ -174,7 +194,7 @@ field.prototype.make = function(){
       i.class = this.id + " " + this.type;
       i.setAttribute('target', this.target);
       l.innerText = this.label;
-      l.appendChild(i);
+      //l.appendChild(i);
       //console.log("LONG field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
     case 'string':
@@ -183,7 +203,7 @@ field.prototype.make = function(){
       i.class = this.id + " " + this.type;
       i.setAttribute('target', this.target);
       l.innerText = this.label;
-      l.appendChild(i);
+      //l.appendChild(i);
       //console.log("STRING field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
     case 'img':
@@ -192,15 +212,15 @@ field.prototype.make = function(){
       <input type="submit">
       */
       var i1 = document.createElement('input');
-      i1.type = "file";
-      i1.accept = "image/*";
-      i1.name = this.id;
-      i1.class = this.id + " " + this.type;
+      i.type = "file";
+      i.accept = "image/*";
+      i.name = this.id;
+      i.class = this.id + " " + this.type;
       l.innerText = this.label;
-      l.appendChild(i1);
-      i.type = "submit";
+      //.appendChild(i1);
+      //i.type = "submit";
       i.setAttribute('target', this.target);
-      l.appendChild(i2);
+      //l.appendChild(i);
       //console.log("IMG field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
     case 'fig':
@@ -210,7 +230,7 @@ field.prototype.make = function(){
       i.class = this.id + " " + this.type;
       i.setAttribute('target', this.target);
       l.innerText = this.label;
-      l.appendChild(i);
+      //l.appendChild(i);
       //console.log("FIG field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
     case 'picker':
@@ -219,15 +239,27 @@ field.prototype.make = function(){
       i.class = this.id + " " + this.type;
       i.setAttribute('target', this.target);
       l.innerText = this.label;
-      l.appendChild(i);
+      //l.appendChild(i);
       //console.log("PICKER field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
     default:
       //console.log("field: "+this.id+"\n label: "+this.label+"\n type: "+this.type);
     break;
   }
+  form.appendChild(i);
   this.attach(i,this.target);
+
+
+  var b = document.createElement('span');
+  b.setAttribute('class', 'bar');
+  form.appendChild(b);
+  //
+  var h = document.createElement('span');
+  h.setAttribute('class', 'highlight');
+  form.appendChild(h);
+
   form.appendChild(l);
+
   return form;
   //this.interface.appendChild(i);
 }
@@ -235,14 +267,30 @@ field.prototype.make = function(){
 
 field.prototype.attach = function(input, target){
 
-  $(input).keyup(function(){
-    var t = $(this).val();
-    console.log("target: "+ $(this).parent().attr('id') + '.' + target);
+  if($(input).attr('type') != 'file'){
 
-    //$(target).html( $(this).val());
-    template.write($(this).parent().attr('id'), $(this).val());
+    $(input).keyup(function(){
+      var t = $(this).val();
+      console.log("UIM::text: "+ $(this).parent().attr('id') + '.' + target);
+      //$(target).html( $(this).val());
+      template.write($(this).parent().attr('id'), $(this).val());
+    });
+  }else{
 
-  });
+    $(input).change(function(){
+      //if($(this).get(0) === 0){
+      //console.log("UIM::img: "+ $(this).parent().attr('id') + '.' + target);
+      console.log("UIM::img: "+ $(this));
+      console.log($(this));
+      //$(this)[0].reset();
+      if(this.files[0] !== undefined)template.setimg($(this).parent().attr('id'),this.files[0].path);
+      else template.setimg($(this).parent().attr('id'),"")
+      //$(this).reset();
+
+
+    });
+
+  }
 
 }
 

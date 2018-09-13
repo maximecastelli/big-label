@@ -1,0 +1,271 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*@font-face*/
+
+
+@font-face {
+  font-family: "Rather";
+  src: url("/fonts/Rather-Medium.otf") format("otf");
+}
+@font-face {
+  font-family: "Rather";
+  src: url("/fonts/Rather-Bold.otf") format("otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "CentuSchBTMonNew";
+  src: url("/fonts/CentuSchBTMonNew.woff") format("woff");
+}
+
+/* CSS pour le template */
+body{
+  font-family: "CentuSchBTMonNew";
+}
+h1{
+  font-family: "CentuSchBTMonNew";
+
+  font-size: 13.5pt;
+  margin: 2mm 0;
+}
+h2{
+  font-family: "Rather";
+  font-weight: bold;
+  font-size: 13.5pt;
+}
+h3{
+  font-family: "Rather";
+  font-weight: bold;
+  font-size: 5.4pt;
+  margin: 0;
+}
+p{
+  font-family: "CentuSchBTMonNew";
+  font-size: 7.2pt;
+  line-height: 9pt;
+}
+span{
+	font-family: "Rather";
+
+  font-size: 5.4pt;
+  margin: 0;
+}
+
+
+.page{
+  background-color: white;
+  width:280mm;
+  height:76mm;
+
+  display: flex;
+  align-items: center;
+  /*A retirer dans print*/
+  
+}
+
+.contact{
+  transform: translateY(0mm) translateX(0mm) rotate(-90deg);
+  transform-origin: center;
+
+  width: 66mm;
+  display: flex;
+  float: left;
+  justify-content: space-between;
+
+  margin-right: -30mm;
+
+}
+
+.main{
+  display: flex;
+  justify-content:space-around;
+  width: 126.792mm;
+  height: 66mm;
+  border: solid black .85pt;
+
+}
+.main div:not(.title){
+  border: solid black .85pt;
+  /*margin: 2mm 1.75mm 2mm 1.75mm;*/
+}
+
+.main div:not(.title) p{
+  /*padding: 2mm 1.75mm 2mm 1.75mm;*/
+	padding: 0mm 1.75mm ;
+}
+
+.main div:not(.title) div , main h3{
+
+  margin: 2mm 1.75mm 1.6mm 1.75mm;
+}
+
+.col{
+  width: 39.799mm;
+  height: 62.077mm;
+  margin-top: 2mm;
+  margin-bottom: 2mm;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.col-1, .col-2{
+  margin-left: 2mm;
+
+}
+.col-3, .col-2{
+  margin-right: 2mm;
+}
+/*-- EXCEPTIONS --*/
+.description{
+  position: relative;
+  height: 62.077mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.description p{
+  margin:2mm;
+}
+
+.ingredients{
+  height: 29.93mm;
+
+  vertical-align: bottom;
+
+}
+
+.collaborator{
+  height: 31.891mm;
+}
+.abv{
+  height: 14.272mm;
+  margin: 0 0 2mm 0;
+}
+
+.details{
+  height:46.139mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.batch{
+  height: 29.931mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content{
+  height: 14.028mm;
+}
+
+.col-4{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-content: center;
+}
+
+.barcode img{
+	transform: translateY(0mm) translateX(0mm) rotate(-90deg);
+  transform-origin: center;
+	width: 20.273mm;
+}
+
+.warnings{
+	transform: translateY(14mm) translateX(-8mm) rotate(-90deg);
+  transform-origin: top center;
+	width: 19mm;
+}
+.resp{
+	margin-bottom: 4.5mm;
+	line-height: 12mm;
+}
+
+.best span{
+	margin-bottom: 4.5mm;
+	line-height: 6mm;
+}
+
+
+.mentions, .barcode{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mentions img{
+
+	width:7.809mm;
+	margin-bottom: 1.25mm;
+}
+
+.col-img .edit{
+	max-width:20mm;
+  max-height:20mm;
+
+}
+
+.main .col-1 .col-img{
+
+	border:none;
+
+}
+
+.verso{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.verso .image{
+  width:272mm;
+  height:68mm;
+  background-image: linear-gradient(to left, #fddb92 0%, #d1fdff 100%);
+}

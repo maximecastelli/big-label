@@ -19,7 +19,7 @@ const url = require('url')
 
   function createWindow () {
     // Créer le browser window.
-    win = new BrowserWindow({width: 1024, height: 768})
+    win = new BrowserWindow({width: 1366, height: 768})
 
     // et charge le index.html de l'application.
     win.loadFile('index.html')

@@ -23,6 +23,20 @@ ipcRenderer.on("edit",function(event,data){
 
 });
 
+ipcRenderer.on("setimg",function(event,data){
+    // the document references to the document of the <webview>
+    //document.getElementById(data.id).innerHTML = data.text;
+    console.log("INJECTOR::Setting " + data.img + " in " + data.id);
+    var f = document.getElementsByName(data.id)[0];
+    //var f = document.getElementByClassName('edit').length;
+    //f.innerHTML = data.text;
+    console.log(data.img);
+    console.log(f.querySelector('.edit'));
+    f.querySelector('.edit').setAttribute('src',data.img);
+    //console.log(document.body.getElementsByClassName('edit').length);
+
+});
+
 /**
  * Simple function to return the source path of all the scripts in the document
  * of the <webview>

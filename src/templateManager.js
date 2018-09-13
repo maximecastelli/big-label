@@ -2,7 +2,8 @@
 //Script to hold all the template related functions
 //
 const templateList = fs.readdirSync('./assets/templates/');
-
+var tmpPath = './assets/templates/';
+var path = require('path');
 
 function templateManager(){
   //
@@ -14,20 +15,41 @@ templateManager.prototype.setTemplateList = function(){
   var index = 0;
   var list = document.getElementsByName('templates');
   console.log(list);
-  for(element in templateList)
-  {
-     var opt = document.createElement("option");
-     opt.value= index;
-     console.log(templateList[index]);
-     opt.innerHTML = templateList[index]; // whatever property it has
-
-     // then append it to the select element
-     document.getElementById('templates').appendChild(opt);
-     console.log('Added '+ templateList[index] +' to list' );
-     index++;
-  }
+  this.getTemplateList(tmpPath, '.html');
+  console.log();
 
 }
+
+templateManager.prototype.getTemplateList = function(startPath,filter){
+
+    if (!fs.existsSync(startPath)){
+        console.log("no dir ",startPath);
+        return;
+    }
+
+    var templates=fs.readdirSync(startPath);
+    for(var i=0;i<templates.length;i++){
+        //
+        var filename=path.join(startPath,templates[i]);
+        var stat = fs.lstatSync(filename);
+        //
+        if (stat.isDirectory()){
+            //this.getTemplateList(filename,filter); //recurse
+            console.log('-- found: ',filename);
+            var opt = document.createElement("option");
+            opt.value= i;
+            opt.innerHTML = templates[i]; //dir fileName
+            document.getElementById('templates').appendChild(opt);
+            console.log('Added '+ templates[i] +' to list' );
+
+            //filename.indexOf(filter)>=0
+        }
+
+    };
+};
+
+
+
 
 templateManager.prototype.loadTemplate = function (){
 
@@ -77,19 +99,37 @@ templateManager.prototype.write = function(selector , content){
   });
 }
 
-//UTILS
-templateManager.prototype.getTemplateList = function(){
-  return templateList;
+templateManager.prototype.setimg = function(selector , img){
+  //Access iframe and link to UIManager
+  console.log("TM::setting " + img + " in " + selector);
+  //wv.send("alert-something", "TM::Hey, i'm alerting: "+ content);
+  //wv.send('asynchronous-message', 'YO ' + content );
+  console.log(this.wv);
+  this.wv.send("setimg",{
+      id: selector,
+      img: img
+  });
 }
+
+//UTILS
+
 templateManager.prototype.getTemplate = function(){
   var tmp = document.getElementById('templates');
   var n = tmp.options[tmp.selectedIndex].innerHTML;
-  return n;
+  var t= fs.readdirSync(path.join(tmpPath,n));
+  for(var i=0;i<t.length;i++){
+    console.log(t[i]);
+    if(t[i].indexOf('.html')>=0)return n+ '/' +t[i];
+  }
+  console.log('getTemplate: ' + n);
+  //return n;
+
 }
 templateManager.prototype.getTemplatePath = function(){
   //var tmp = document.getElementById('templates');
-  var path = __dirname + '/../assets/templates/' + this.getTemplate();
-  return path;
+  var p = __dirname + '/../assets/templates/' + this.getTemplate();
+  //var p = path.join(__dirname, '..', this.getTemplate());
+  return p;
 }
 
 

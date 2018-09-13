@@ -1,16 +1,262 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*   ---   END RESET   ---   */
+
+@font-face {
+  font-family: "Rather";
+  src: url("/fonts/Rather-Medium.otf") format("otf");
+}
+
+
+@font-face {
+  font-family: "Rather";
+  src: url("/fonts/Rather-Bold.otf") format("otf");
+  font-weight: bold;
+}
+
+
 body{
   font-family: Helvetica sans-serif;
+  margin: 0;
+  overflow: hidden;
+
+  display: flex;
+
+  height:100vh;
+  width:100vw;
+
 }
+
+/* workspace */
+
+
+#workspace {
+  width: 80%;
+  height: 100%;
+}
+
+#workspace webview{
+  width: 100%;
+  height: 100%;
+
+  background-color:#dedede;
+  background-image: linear-gradient(white .2mm, transparent .2mm),
+  linear-gradient(90deg, white .2mm, transparent .2mm),
+  linear-gradient(rgba(255,255,255,.3) .1mm, transparent .1mm),
+  linear-gradient(90deg, rgba(255,255,255,.3) .1mm, transparent .1mm);
+  background-size:10mm 10mm, 10mm 10mm, 2mm 2mm, 2mm 2mm;
+}
+
+
 /* UI */
+
 #ui{
-  height: 240px;
+  height: 100%;
+  margin: 10px;
+  width: 20%;
+
+  font-family:'Rather';
+
+  display:block;
+  background:#FFF;
+
+}
+#ui .logo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#ui .logo img{
+  width: 50px;
+
+
+}
+
+#ui h2{
+  font-family:'Rather';
+  font-weight: bold;
+  margin: 0 20px;
 }
 
 #ui #interface page{
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 #ui #interface page section{
-  width: fit-content;
+  width: 80%;
+}
+#ui #interface page section .section-title{
+  margin: 45px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* DRAWERS */
+
+#ui section {
+  max-height: 10vh;
+  overflow: hidden;
+
+  transition:0.75s ease all;
+  -moz-transition:0.75s ease all;
+  -webkit-transition:0.75s ease all;
+}
+
+
+#ui section.active{
+  max-height: 100vh;
+
+  transition:0.75s ease all;
+  -moz-transition:0.75s ease all;
+  -webkit-transition:0.75s ease all;
+
+}
+
+
+/* UI INPUTS */
+
+#ui * { box-sizing:border-box; }
+
+/* form starting stylings ------------------------------- */
+form 			  {
+  position:relative;
+  margin-bottom:45px;
+}
+input:not([type='checkbox']) 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label	, input:valid ~ label		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:100%; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
 }

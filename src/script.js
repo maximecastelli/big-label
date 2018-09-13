@@ -55,7 +55,7 @@ ipc.on('print', function(event){
   //console.log(frame);
 
   win.printToPDF({
-    marginsType: 0,
+    marginsType: 1,
     printBackground: true,
     printSelectionOnly: false,
     landscape: true,
@@ -99,6 +99,21 @@ ipc.on('print', function(event){
 });
 */
 
+//Manage Image importation
+/*
+$('input[type = "file"]').change(function(){
+  if($(this).get(0) === 0){
+
+  }else{
+    //$(this).attr('src', 'new path');
+    $(this).parent()attr('name');
+  }
+});
+*/
+
+//Drawers
+//$('.section-toggle:checkbox').prop('checked',false);
+//$('#myform :checkbox').change(function() {
 
 //Export file
 
@@ -120,3 +135,36 @@ document.getElementById('export').onclick = () =>{
 
   });
 };
+
+
+$( function() {
+  $( document ).on( "change", ":checkbox", function () {
+    //$('.section-toggle:checkbox').prop('checked',false);
+
+    if($(this).hasClass('section-toggle')){
+      if($(this).is(':checked')){
+          //console.log('penis');
+          $('.section-toggle').not(this).prop('checked',false);
+
+      } else {
+          console.log('TOGGLE3');
+      }
+      $('section').removeClass('active');
+      $('.section-toggle:checked').closest('section').addClass('active');
+    }
+
+
+  });
+});
+
+
+/*
+$('.section-toggle').change(function(){
+  console.log('penis');
+    if($(this).is(':checked')){
+        $('.section-toggle').not(this).prop('checked',false);
+    } else {
+        console.log('TOGGLE3');
+    }
+});
+*/
