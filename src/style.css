@@ -112,6 +112,7 @@ body{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin:20px 0;
 }
 
 #ui .logo img{
@@ -120,7 +121,7 @@ body{
 
 }
 
-#ui h2{
+#ui .logo h2{
   font-family:'Rather';
   font-weight: bold;
   margin: 0 20px;
@@ -132,11 +133,26 @@ body{
   flex-direction: column;
 }
 
+#ui #interface page{
+  width: 100%;
+}
+
+#ui #interface page .page-title{
+  margin: 30px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  text-transform: uppercase;
+}
+
+
+
 #ui #interface page section{
   width: 80%;
 }
 #ui #interface page section .section-title{
-  margin: 45px 0;
+  margin: 30px 0 45px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -144,8 +160,27 @@ body{
 
 /* DRAWERS */
 
+#ui page {
+  max-height: 8vh;
+  overflow: hidden;
+
+  transition:0.75s ease all;
+  -moz-transition:0.75s ease all;
+  -webkit-transition:0.75s ease all;
+}
+
+
+#ui page.active{
+  max-height: 100vh;
+
+  transition:0.75s ease all;
+  -moz-transition:0.75s ease all;
+  -webkit-transition:0.75s ease all;
+
+}
+
 #ui section {
-  max-height: 10vh;
+  max-height: 8vh;
   overflow: hidden;
 
   transition:0.75s ease all;
@@ -168,14 +203,16 @@ body{
 
 #ui * { box-sizing:border-box; }
 
+#ui label{text-transform: uppercase;}
+
 /* form starting stylings ------------------------------- */
 form 			  {
   position:relative;
-  margin-bottom:45px;
+  margin-bottom:25px;
 }
 input:not([type='checkbox']) 				{
-  font-size:18px;
-  padding:10px 10px 10px 5px;
+  font-size:14px;
+  padding:7px 0;
   display:block;
   width:100%;
   border:none;
@@ -186,7 +223,7 @@ input:focus 		{ outline:none; }
 /* LABEL ======================================= */
 label 				 {
   color:#999;
-  font-size:18px;
+  font-size:14px;
   font-weight:normal;
   position:absolute;
   pointer-events:none;
@@ -199,8 +236,8 @@ label 				 {
 
 /* active state */
 input:focus ~ label	, input:valid ~ label		{
-  top:-20px;
-  font-size:14px;
+  top:-10px;
+  font-size:8px;
   color:#5264AE;
 }
 

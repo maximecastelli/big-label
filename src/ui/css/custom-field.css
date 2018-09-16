@@ -1,0 +1,94 @@
+.verso form{
+  min-height:10vh;
+  max-height:100vh;
+
+  min-height: 10vh;
+  max-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.option-holder{
+  position: unset;
+  height:40px;
+  width: 40px;
+  display:flex;
+
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+/*
+.option-holder[data-type='color'][data-value='1']   {background-color: cmyk(80,30,55,0);}
+.option-holder[data-type='color'][data-value='2']   {background-color: cmyk(25,0,25,0);}
+.option-holder[data-type='color'][data-value='3']   {background-color: cmyk(100,80,30,0);}
+.option-holder[data-type='color'][data-value='4']   {background-color: cmyk(80,40,20,0);}
+.option-holder[data-type='color'][data-value='5']   {background-color: cmyk(25,0,5,0);}
+
+.option-holder[data-type='color'][data-value='6']   {background-color: cmyk(0,65,10,0);}
+.option-holder[data-type='color'][data-value='7']   {background-color: cmyk(0,20,20,0);}
+.option-holder[data-type='color'][data-value='8']   {background-color: cmyk(40,30,100,0);}
+.option-holder[data-type='color'][data-value='9']   {background-color: cmyk(5,0,60,0);}
+.option-holder[data-type='color'][data-value='10']   {background-color: cmyk(0,65,85,0);}
+.option-holder[data-type='color'][data-value='11']  {background-color: cmyk(0,20,50,0);}
+
+.option-holder[data-type='color'][data-value='12']  {background-color: cmyk(0,0,0,0);}
+.option-holder[data-type='color'][data-value='13']  {background-color: cmyk(0,0,0,0);}
+/*    en fait il y en a que 13    */
+/*
+.option-holder[data-type='color'][data-value='14']  {background-color: cmyk(80,30,55,0);}
+.option-holder[data-type='color'][data-value='15']  {background-color: cmyk(80,30,55,0);}
+.option-holder[data-type='color'][data-value='16']  {background-color: cmyk(80,30,55,0);}
+*/
+
+
+
+.option-holder[data-type='color'][data-value='1'] , .color-layer[data-value='1'] {background-color: #358477}
+.option-holder[data-type='color'][data-value='2'] , .color-layer[data-value='2'] {background-color: #BFDEC1;}
+.option-holder[data-type='color'][data-value='3'] , .color-layer[data-value='3'] {background-color: #21456E;}
+.option-holder[data-type='color'][data-value='4'] , .color-layer[data-value='4'] {background-color: #387998;}
+.option-holder[data-type='color'][data-value='5'] , .color-layer[data-value='5'] {background-color: #BBE1E4;}
+
+.option-holder[data-type='color'][data-value='6'] , .color-layer[data-value='6'] {background-color: #E67597;}
+.option-holder[data-type='color'][data-value='7'] , .color-layer[data-value='7'] {background-color: #F7CEBA;}
+.option-holder[data-type='color'][data-value='8'] , .color-layer[data-value='8'] {background-color: #9B983B;}
+.option-holder[data-type='color'][data-value='9'] , .color-layer[data-value='9'] {background-color: #F5EE84;}
+.option-holder[data-type='color'][data-value='10'] , .color-layer[data-value='10'] {background-color: #E5723F;}
+.option-holder[data-type='color'][data-value='11'] , .color-layer[data-value='11'] {background-color: #F8CB89;}
+
+.option-holder[data-type='color'][data-value='12'] , .color-layer[data-value='12'] {background-color: #9E9F9E;}
+.option-holder[data-type='color'][data-value='13'] , .color-layer[data-value='13'] {background-color: #D7D8D6;}
+
+/*
+
+.option-holder[data-type='image'][data-value='1']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-19.png');}
+.option-holder[data-type='image'][data-value='2']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-27.png');}
+.option-holder[data-type='image'][data-value='3']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-37.png');}
+.option-holder[data-type='image'][data-value='4']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-49.png');}
+.option-holder[data-type='image'][data-value='5']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-61.png');}
+.option-holder[data-type='image'][data-value='6']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-74.png');}
+.option-holder[data-type='image'][data-value='7']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-84.png');}
+.option-holder[data-type='image'][data-value='8']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-2.png');}
+.option-holder[data-type='image'][data-value='9']    { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-28.png');}
+.option-holder[data-type='image'][data-value='10']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-42.png');}
+.option-holder[data-type='image'][data-value='11']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-50.png');}
+.option-holder[data-type='image'][data-value='12']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-66.png');}
+.option-holder[data-type='image'][data-value='13']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-77.png');}
+.option-holder[data-type='image'][data-value='14']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-23.png');}
+.option-holder[data-type='image'][data-value='15']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-32.png');}
+.option-holder[data-type='image'][data-value='16']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-45.png');}
+.option-holder[data-type='image'][data-value='17']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-54.png');}
+.option-holder[data-type='image'][data-value='18']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-68.png');}
+.option-holder[data-type='image'][data-value='19']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-8.png');}
+.option-holder[data-type='image'][data-value='20']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-24.png');}
+.option-holder[data-type='image'][data-value='21']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-35.png');}
+.option-holder[data-type='image'][data-value='22']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-47.png');}
+.option-holder[data-type='image'][data-value='23']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-58.png');}
+.option-holder[data-type='image'][data-value='24']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-71.png');}
+.option-holder[data-type='image'][data-value='25']   { background-image:url('../../../content/images/thumbs/180703_BIGLab_TrameDroit-80.png');}
+*/

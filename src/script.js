@@ -152,6 +152,17 @@ $( function() {
       $('section').removeClass('active');
       $('.section-toggle:checked').closest('section').addClass('active');
     }
+    if($(this).hasClass('page-toggle')){
+      if($(this).is(':checked')){
+          //console.log('penis');
+          $('.page-toggle').not(this).prop('checked',false);
+
+      } else {
+          //console.log('TOGGLE3');
+      }
+      $('page').removeClass('active');
+      $('.page-toggle:checked').closest('page').addClass('active');
+    }
 
 
   });
@@ -168,3 +179,17 @@ $('.section-toggle').change(function(){
     }
 });
 */
+
+
+function logContentFolder(){
+  var imgPath = require("path").join(__dirname, '/content/image');
+
+  var setOption = require("fs").readdirSync(imgPath).forEach(function(file) {
+    //console.log('content/images/'+ file);
+    var o = document.createElement('option');
+    o.setAttribute('type', 'image');
+    o.innerHTML = imgPath + file;
+    console.log('o:'+o.outerHTML);
+    //require( cfconst +'/'+ file);
+  });
+}

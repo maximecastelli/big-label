@@ -111,6 +111,19 @@ templateManager.prototype.setimg = function(selector , img){
   });
 }
 
+templateManager.prototype.setcover = function(selector , val, type){
+  //Access iframe and link to UIManager
+  console.log("TM::setting " + val + " on cover ");
+  //wv.send("alert-something", "TM::Hey, i'm alerting: "+ content);
+  //wv.send('asynchronous-message', 'YO ' + content );
+  console.log(this.wv);
+  this.wv.send("setcover",{
+      id: selector,
+      val: val,
+      type: type
+  });
+}
+
 //UTILS
 
 templateManager.prototype.getTemplate = function(){
