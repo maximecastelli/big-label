@@ -307,7 +307,7 @@ field.prototype.make = function(){
 
     break;
     case 'fig':
-      var i = document.createElement('input');
+      //var i = document.createElement('input');
       i.type = "number";
       i.label = this.label;
       i.class = this.id + " " + this.type;
@@ -340,6 +340,12 @@ field.prototype.make = function(){
 
 
       }
+
+    break;
+    case 'super':
+
+      l.innerText = this.label;
+      form.classList.add('super');
 
     break;
     default:

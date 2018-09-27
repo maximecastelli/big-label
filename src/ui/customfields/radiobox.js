@@ -37,7 +37,7 @@ radiobox.prototype.make = function(){
 
 radiobox.prototype.setThumb = function(val){
   //var out = val.substr(0, val.lastIndexOf('.'))+"-thumb.png";
-  return 'content/image/thumbs/'+val.substr(0, val.lastIndexOf('.'))+".png";
+  return 'content/image/thumbs/'+val.substr(0, val.lastIndexOf('.'))+".jpg";
 }
 
 

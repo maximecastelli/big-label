@@ -84,7 +84,9 @@ table {
 }
 body{
   font-family: "CenturySchoolbookBT-Monospace";
-
+	/*Only for debug
+	background-color: #ddd;
+	*/
 }
 
 
@@ -124,11 +126,12 @@ span{
 .page{
   background-color: white;
   width:280mm;
-  height:75.999mm;
+  height:75.7mm;
 
   display: flex;
   align-items: center;
-
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 .contact{
@@ -202,7 +205,7 @@ span{
 
 .description{
   position: relative;
-  height: 62.077mm;
+  height: 62mm;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -350,6 +353,10 @@ span{
 	margin-bottom: 1.25mm;
 }
 
+.replacement{
+	transform:rotate(-90deg) translateX(-67%) translateY(2mm);
+}
+
 .col-img .edit{
 	max-width:20mm;
   max-height:20mm;
@@ -368,14 +375,12 @@ span{
 }
 
 .verso{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position:relative;
 }
 .verso .image{
 	position: relative;
-  width:272mm;
-  height:68mm;
+  width:280mm;
+  height:76mm;
 	isolation: isolate;
 	/*background-image: linear-gradient(to left, #fddb92 0%, #d1fdff 100%);*/
 }
@@ -390,12 +395,19 @@ span{
   /*background-image: linear-gradient(to left, #fddb92 0%, #d1fdff 100%);*/
 }
 
+.verso .image .color-layer{
+  margin:.5%;
+	width: 99%;
+  height: 96%;
+}
+
 .verso .image div img{
   width:100%;
   height:100%;
 	position: absolute;
 	top: 0;
 	left: 0;
+
   /*background-image: linear-gradient(to left, #fddb92 0%, #d1fdff 100%);*/
 }
 
@@ -431,5 +443,10 @@ body{
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
-
+.page{
+	border:solid 1px black;
+}
+.verso .image div img{
+	border: solid 1px blue;
+}
  end debug */

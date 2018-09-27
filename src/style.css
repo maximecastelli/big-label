@@ -446,6 +446,16 @@ input[type='file'] ~ img{
   color:#5264AE;
 }
 
+#interface form.super{
+	height: 40px;
+}
+
+#interface form.super label{
+	font-size:14px;
+  color:#5264AE;
+	top:15px;
+}
+
 /* BOTTOM BARS ================================= */
 .bar 	{ position:relative; display:block; width:100%; }
 .bar:before, .bar:after 	{

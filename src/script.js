@@ -25,17 +25,7 @@ console.log('system fonts loaded…');
 
 
 ///
-// SHow
-var tmp = new tm();
-tmp.setTemplateList();
-//document.getElementById('workspace').src = tmp.getTemplatePath();
-tmp.loadTemplate();
-//
-//SETUP UI
-//
-var gui = new ui(tmp);
-gui.scanTemplate();
-gui.create($('#ui'));
+
 
 //console.log(ui.scanTemplate());
 
@@ -49,54 +39,39 @@ ipc.on('print', function(event){
   //console.log(win);
   //tmp.wv.request();
   var win = tmp.wv;
+  //win.send("alert-something", "Hey, i'm alerting this.");
   //tmp.printHTML();
   /*
   win.getWebContents().savePage(htmlpath, 'HTMLComplete', (error) => {
       if (!error) console.log('Page sauvegardée correctement');
       shell.openExternal('file://'+ htmlpath);
-  });
-  */
-  win.getWebContents().printToPDF({
-    marginsType: 1,
-    printBackground: true,
-    printSelectionOnly: false,
-    landscape: true,
-    pageSize: {height:280000, width:76000}
-  }, function(error , data){
-  //document.getElementById('#workspace').find('iframe').webContents.printToPDF({}, function(error , data){
+  });*/
+
+  win.printToPDF({},function(error, data){
     if(error)return console.log(error.message);
-    console.log(win);
-    fs.writeFile(pdfpath, data, (err) => {
-      if (err) console.log(err);
-      //alert("votre fichier à été correctement enregistré");
-      shell.openExternal('file://'+ pdfpath);
-      event.sender.send('wrote', pdfpath);
+    
+    win.printToPDF({
+      marginsType: 1,
+      printBackground: true,
+      printSelectionOnly: false,
+      landscape: true,
+      pageSize: {height:280000, width:76000}
+    }, function(error , data){
+
+      if(error)return console.log(error.message);
+
+      fs.writeFile(pdfpath, data, (err) => {
+        if (err) console.log(err);
+
+        shell.openExternal('file://'+ pdfpath);
+        event.sender.send('wrote', pdfpath);
+      });
     });
   });
 
 });
 
-//Export file
 
-
-/*
-document.getElementById('export').onclick = () =>{
-  dialog.showSaveDialog((fileName) =>{
-    if(fileName === undefined){
-      alert("Nom de fichier non-défini");
-      return;
-    }
-
-    var content = "Hello";
-
-    fs.writeFile(fileName, content, (err) => {
-      if (err) console.log(err);
-      alert("votre fichier à été correctement enregistré");
-    });
-
-  });
-};
-*/
 
 $( function() {
   $( document ).on( "change", ":checkbox", function () {
@@ -154,3 +129,17 @@ function logContentFolder(){
     //require( cfconst +'/'+ file);
   });
 }
+
+//START
+
+// SHow
+var tmp = new tm();
+tmp.setTemplateList();
+//document.getElementById('workspace').src = tmp.getTemplatePath();
+tmp.loadTemplate();
+//
+//SETUP UI
+//
+var gui = new ui(tmp);
+gui.scanTemplate();
+gui.create($('#ui'));

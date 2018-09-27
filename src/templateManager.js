@@ -58,7 +58,9 @@ templateManager.prototype.loadTemplate = function (){
 
   this.wv.addEventListener("dom-ready", function() {
       console.log("DOM-Ready, triggering events !");
+      //this.wv.send("alert-something", "Hey, i'm alerting this.");
       //this.wv.send("request");
+
   });
 
   // Process the data from the webview
@@ -69,7 +71,7 @@ templateManager.prototype.loadTemplate = function (){
   this.wv.addEventListener('console-message', function(e) {
   	var srcFile = e.sourceId.replace(/^.*[\\\/]/, '');
   	console.log('webview logged from ' + srcFile +'(' + e.line + '): ' + e.message);
-    //console.log(e.sourceID);
+
   });
 
   this.wv.src = "file://" + this.getTemplatePath();
