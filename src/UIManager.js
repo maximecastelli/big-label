@@ -172,8 +172,15 @@ section.prototype.setFields = function(){
     if(f[i].hasAttribute('values'))console.log($(f[i]).find(sel));
     if(f[i].hasAttribute('values')) out[i] = new field(f[i].getAttribute('name') ,f[i].getAttribute('name') ,f[i].getAttribute('type'),'edit',$(f[i]).hasClass('facultative'),$(f[i]).find(sel).children());
     else out[i] = new field(f[i].getAttribute('name'),f[i].getAttribute('name'),f[i].getAttribute('type'),'edit',$(f[i]).hasClass('facultative'));
+    var om = out[i].make();
+    if($(f[i]).hasClass('conditional')){
+      var con = document.createElement('h5');
+      con.innerHTML = f[i].getAttribute('data-condition');
+      om.appendChild(con);
+    }
 
-    this.display.appendChild(out[i].make());
+    this.display.appendChild(om);
+
   }
   return out;
 }

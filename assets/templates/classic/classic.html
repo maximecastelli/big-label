@@ -22,6 +22,7 @@
           <div name="collaborator" class="collaborator" type="string">
             <h3>Collaborator</h3>
             <p class="edit">
+              Aliquam vehicula
             </p>
             <div name="collaborator-image" class="col-img facultative" type="img">
               <img src="" class="edit" alt="">
@@ -31,10 +32,16 @@
         <section class="col col-2" name="Description">
           <div name="description" class="description" type="long">
             <h3>Description</h3>
-            <p class="edit"></p>
+            <p class="edit">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Donec ornare hendrerit fermentum. Donec nisl elit, sollicitudin varius vehicula in, viverra a lacus.
+            </p>
             <div name="ingredients" class="ingredients" type="long">
               <h3>Ingredients</h3>
-              <p class="edit"></p>
+
+              <p class="edit">
+                Vivamus dolor est, vestibulum a odio vitae, consequat pharetra lectus. In mattis lacus nec egestas scelerisque. Morbi vestibulum massa a orci pellentesque vehicula id ut felis. Etiam semper sed orci ac posuere. Phasellus a pretium dolor. Suspendisse feugiat a nisl in eleifend.
+              </p>
             </div>
 
           </div>
@@ -42,17 +49,17 @@
         <section class="col col-3" name="Details">
           <div name="abv" class="abv" type="fig">
             <h3>ABV</h3>
-            <p> <span class="edit"></span><span>% vol</span> </p>
+            <p> <span class="edit">40</span><span>% vol</span> </p>
           </div>
           <div name="details" class="details" type="string">
             <h3>Production date</h3>
-            <p class="edit"></p>
+            <p class="edit">14-12-2018</p>
             <div name="batch" class="batch"  type="string">
               <h3>Batch number</h3>
-              <p class="edit"></p>
-              <div name="content" class="content" type="long">
+              <p class="edit">123456</p>
+              <div name="content" class="content" type="fig">
                 <h3>Content</h3>
-                <p class="edit"></p>
+                <p> <span class="edit">75</span><span>cl</span> </p>
               </div>
 
             </div>
@@ -61,21 +68,25 @@
         </section>
       </main>
       <section class="col col-4" name="Logistique">
+        <span class="resp">Drink responsibly</span>
         <div class="mentions">
           <img src="assets/89ca1f77a4f9408a191340fbf0ae42d8.png" class="" alt="">
           <img src="assets/arrow-43944_960_720.png" class="" alt="">
         </div>
 
-        <div name="barcode-image" class="barcode facultative" type="img">
-          <img src="assets/Article_-_Les_codes_barres00001.png" class="edit" alt="">
-        </div>
-        <div class="warnings">
-          <span class="resp">Drink responsibly</span>
-          <div name="best" class="best facultative" type="string">
+        <div name="warnings" class="warnings facultative" type="string" data-replacement="replacement">
+          <div name="barcode-image facultative" class="barcode" type="img">
+            <img src="assets/Article_-_Les_codes_barres00001.png" class="edit" alt="">
+          </div>
+          <div name="best" class="best" type="string">
             <span>Best before</span>
             <p class="edit">12.24.24</p>
+          </div>
         </div>
-
+        <div name="replacement" class="replacement conditional hidden" type="long" data-replace="warnings" data-condition="Hide 'Best before' and barcode to display this replacement text">
+          <p class="edit">
+            Vivamus dolor est, vestibulum a odio vitae, consequat pharetra lectus. In mattis lacus nec egestas scelerisque. Morbi vestibulum massa a orci pellentesque vehicula id ut felis. Etiam semper sed orci ac posuere. Phasellus a pretium dolor. Suspendisse feugiat a nisl in eleifend.
+          </p>
         </div>
 
       </section>

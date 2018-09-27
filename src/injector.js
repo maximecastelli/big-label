@@ -61,10 +61,13 @@ ipcRenderer.on("setcover",function(event,data){
 
 ipcRenderer.on('togglevis', function(event,data){
   var f = document.getElementsByName(data.id)[0];
-  if (f.classList.contains('hidden')) {
-    f.classList.remove('hidden');
-  }else{
-    f.classList.add('hidden');
+  f.classList.toggle('hidden');
+  console.log(f.getAttribute('data-replacement') );
+  if (f.getAttribute('data-replacement') !== null) {
+
+    var r = document.getElementsByName(f.getAttribute('data-replacement'))[0];
+    console.log('inj::replace with '+r);
+    r.classList.toggle('hidden');
   }
 });
 

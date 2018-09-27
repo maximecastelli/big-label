@@ -84,12 +84,16 @@ table {
 }
 body{
   font-family: "CenturySchoolbookBT-Monospace";
+
 }
+
+
 h1{
   font-family: "CenturySchoolbookBT-Monospace";
 
   font-size: 13.5pt;
-  margin: 2mm 0;
+  margin: .5mm 0;
+	line-height: 16.2pt;
 }
 h2{
   font-family: "Rather";
@@ -102,10 +106,12 @@ h3{
   font-size: 5.4pt;
   margin: 0;
 }
-p, .abv span{
+p, div[type="fig"] span{
   font-family: "CenturySchoolbookBT-Monospace";
   font-size: 7.2pt;
   line-height: 9pt;
+	overflow: hidden;
+  text-overflow: ellipsis;
 }
 span{
 	font-family: "Rather";
@@ -118,7 +124,7 @@ span{
 .page{
   background-color: white;
   width:280mm;
-  height:75.5mm;
+  height:75.999mm;
 
   display: flex;
   align-items: center;
@@ -126,7 +132,7 @@ span{
 }
 
 .contact{
-  transform: translateY(0mm) translateX(-17mm) rotate(-90deg);
+  transform: translateY(0.3mm) translateX(-16.45mm) rotate(-90deg);
   transform-origin: center;
 
   width: 66mm;
@@ -139,6 +145,7 @@ span{
 }
 
 .main{
+	box-sizing: border-box;
   display: flex;
   justify-content:space-around;
   width: 126.792mm;
@@ -148,23 +155,31 @@ span{
 }
 .main div:not(.title){
   border: solid black .85pt;
+	box-sizing: border-box;
   /*margin: 2mm 1.75mm 2mm 1.75mm;*/
 }
 
-.main div:not(.title) p{
+.main div p, .title h1{
   /*padding: 2mm 1.75mm 2mm 1.75mm;*/
 	padding: 0mm 1.75mm ;
+	overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.main div:not(.title) div , main h3{
+.main div div{
 
-  margin: 2mm 1.75mm 1.6mm 1.75mm;
+  margin: 1.6mm 1.6mm ;
+}
+
+.main h3{
+
+  margin: 1.25mm 1.15mm;
 }
 
 .col{
-  width: 39.799mm;
-  height: 62.077mm;
-  margin-top: 2mm;
+  width: 40mm;
+  height: 62mm;
+  margin-top: 1.8mm;
   margin-bottom: 2mm;
   display: flex;
   justify-content: space-between;
@@ -177,7 +192,14 @@ span{
 .col-3, .col-2{
   margin-right: 2mm;
 }
+
+
 /*-- EXCEPTIONS --*/
+
+.title h1{
+	height: 22mm;
+}
+
 .description{
   position: relative;
   height: 62.077mm;
@@ -186,27 +208,47 @@ span{
   justify-content: space-between;
 }
 .description p{
-  margin:2mm;
+
 	height: 22mm;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
 
+.main .description p:nth-of-type(1){
+ padding: 0mm 3.75mm;
+     margin-top: -2.3mm;
+}
+
+
 .ingredients{
   height: 29.93mm;
-
-  vertical-align: bottom;
-
+  /*vertical-align: bottom;*/
 }
+.main .ingredients p:nth-of-type(1){
+ padding: 0mm 2mm;
+     margin-top: 0;
+}
+
 
 .collaborator{
   height: 31.891mm;
 }
+
+
+
+.col-3 p{
+	height: 6.5mm;
+
+}
+
 .abv{
   height: 14.272mm;
   margin: 0 0 2mm 0;
-}
 
+}
+.main .abv p:nth-of-type(1){
+		padding: 0mm 5.75mm;
+}
 .details{
   height:46.139mm;
   display: flex;
@@ -214,56 +256,97 @@ span{
   justify-content: space-between;
 }
 
+.main .details p:nth-of-type(1){
+ padding: 0mm 5.75mm;
+ margin-top: -7px;
+}
+
 .batch{
-  height: 29.931mm;
+  height: 29.93mm;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.main .batch p:nth-of-type(1){
+ padding: 0mm 3.75mm;
+}
 .content{
   height: 14.028mm;
 }
 
-.col-4{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-content: center;
-	width:26mm;
+.main .content p:nth-of-type(1){
+ padding: 0mm 1.9mm;
+ margin-top: 0;
 }
 
-.barcode img{
-	transform: translateY(0mm) translateX(0mm) rotate(-90deg);
-  transform-origin: center;
-	width: 20.273mm;
+.col-4{
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
+	height: 66mm;
+
 }
+
+
+.resp{
+	transform: rotate(-90deg) translateX(-100%);
+	transform-origin: top left;
+	position: absolute;
+	top:0.5mm;
+	left:2.7mm;
+}
+
 
 .warnings{
-	transform: translateY(14mm) translateX(-8mm) rotate(-90deg);
-  transform-origin: top center;
-	width: 19mm;
-}
-.resp{
-	margin-bottom: 4.5mm;
-	line-height: 12mm;
-}
 
+	transform: rotate(-90deg) translateX(-49%);
+  transform-origin: top left;
+	width: 49mm;
+	height: 24mm;
+	position: absolute;
+	bottom: 0;
+	left:2.7mm;
+}
+.barcode{
+
+	position: absolute;
+	top:0;
+	left:20mm;
+}
+.barcode img{
+	width: 24mm;
+}
+.best{
+	position: absolute;
+	width: 18mm;
+	height: 9mm;
+	left:0;
+	top:0;
+}
 .best span{
-	margin-bottom: 4.5mm;
-	line-height: 6mm;
+	position: absolute;
+	top:0;
+
+}
+.best p{
+	position: absolute;
+	top:3.14mm;
+
 }
 
 
-.mentions, .barcode{
+.mentions{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
+	position: absolute;
+	left: 6.4mm;
 }
 
 .mentions img{
 
-	width:7.809mm;
+	width:7.8mm;
 	margin-bottom: 1.25mm;
 }
 
@@ -281,7 +364,7 @@ span{
 
 /* Toggle vis */
 .hidden{
-	opacity: 0;
+	display:none;
 }
 
 .verso{
@@ -313,10 +396,11 @@ span{
 	position: absolute;
 	top: 0;
 	left: 0;
-
-
   /*background-image: linear-gradient(to left, #fddb92 0%, #d1fdff 100%);*/
 }
+
+
+
 
 .color-layer[data-value='1'] {background-color: #358477}
 .color-layer[data-value='2'] {background-color: #BFDEC1;}
@@ -333,3 +417,19 @@ span{
 
 .color-layer[data-value='12'] {background-color: #9E9F9E;}
 .color-layer[data-value='13'] {background-color: #D7D8D6;}
+
+
+/*Only for debug
+body{
+  font-family: "CenturySchoolbookBT-Monospace";
+	background-color: #ddd;
+}
+
+.page{
+	background: #000;
+  background-image: url('../../debug/debug.jpg');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+ end debug */

@@ -489,6 +489,15 @@ input:focus ~ .highlight {
   animation:inputHighlighter 0.3s ease;
 }
 
+
+/* CONDITION TEXT */
+h5{
+	font-style: italic;
+	margin: 10px 0;
+	font-size: 10px;
+	color: #5264AE;
+}
+
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
 	from { background:#5264AE; }
