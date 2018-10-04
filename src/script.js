@@ -49,7 +49,7 @@ ipc.on('print', function(event){
 
   win.printToPDF({},function(error, data){
     if(error)return console.log(error.message);
-    
+
     win.printToPDF({
       marginsType: 1,
       printBackground: true,
@@ -143,3 +143,5 @@ tmp.loadTemplate();
 var gui = new ui(tmp);
 gui.scanTemplate();
 gui.create($('#ui'));
+
+$('.verso > section').addClass(active);

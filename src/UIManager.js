@@ -169,9 +169,12 @@ section.prototype.setFields = function(){
 
     var sel ='#'+f[i].getAttribute('values');
     console.log('setfields::'+$(f[i]).hasClass('facultative'));
+    var custom = '';
+    if(f[i].hasAttribute('data-custom')){ custom = f[i].getAttribute('data-custom');}
+
     if(f[i].hasAttribute('values'))console.log($(f[i]).find(sel));
-    if(f[i].hasAttribute('values')) out[i] = new field(f[i].getAttribute('name') ,f[i].getAttribute('name') ,f[i].getAttribute('type'),'edit',$(f[i]).hasClass('facultative'),$(f[i]).find(sel).children());
-    else out[i] = new field(f[i].getAttribute('name'),f[i].getAttribute('name'),f[i].getAttribute('type'),'edit',$(f[i]).hasClass('facultative'));
+    if(f[i].hasAttribute('values')) out[i] = new field(f[i].getAttribute('name') ,f[i].getAttribute('name') ,f[i].getAttribute('type'),'edit',$(f[i]).hasClass('facultative'),$(f[i]).find(sel).children(),custom);
+    else out[i] = new field(f[i].getAttribute('name'),f[i].getAttribute('name'),f[i].getAttribute('type'),'edit',$(f[i]).hasClass('facultative'),'',custom);
     var om = out[i].make();
     if($(f[i]).hasClass('conditional')){
       var con = document.createElement('h5');
@@ -193,20 +196,22 @@ section.prototype.create = function(loc){
 
 
 
-var field = function(id, label, type, target,facultative = false  , values = ''){
+var field = function(id, label, type, target,facultative = false  , values = '', custom = ''){
   this.id = id;
   this.label = label;
   this.type = type;
   this.target = target;
   this.values = values;
   this.facultative = facultative;
+  this.custom = custom;
   console.log(
     'Creating new field:\n'+
     'id => ' + id + '\n' +
     'label => ' + label + '\n' +
     'type => ' + type + '\n' +
-    'target => ' + target + '\n',
-    'values =>' + values
+    'target => ' + target + '\n'+
+    'values =>' + values + '\n'+
+    'custom =>' + custom
   );
 
 }
@@ -287,7 +292,7 @@ field.prototype.make = function(){
       var lb = document.createElement('span');
       lb.setAttribute('class','img-label');
       lb.setAttribute('maxlenght','10');
-      lb.innerHTML = "Add image";
+      lb.innerHTML = this.custom;
       icn.src = "./src/ui/core/up-image.png"
       i.type = "file";
       i.accept = "image/*";

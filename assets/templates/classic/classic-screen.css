@@ -51,28 +51,28 @@ table {
 
 @font-face {
   font-family: "Rather";
-  src: url("/fonts/Rather-Medium.otf") format("otf");
+  src: url("../../../fonts/Rather-Medium.otf") format("otf");
 }
 @font-face {
   font-family: "Rather";
-  src: url("/fonts/Rather-Bold.otf") format("otf");
+  src: url("../../../fonts/Rather-Bold.otf") format("otf");
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'CentSchbookMonoBT';
-  src: url('CentSchbookMonoBT.eot');
-  src: url('CentSchbookMonoBT.woff2') format('woff2'),
-       url('CentSchbookMonoBT.eot?#iefix') format('embedded-opentype');
+  src: url('../../../fonts/CentSchbookMonoBT.eot');
+  src: url('../../../fonts/CentSchbookMonoBT.woff2') format('woff2'),
+       url('../../../fonts/CentSchbookMonoBT.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'CenturySchoolbookBT-Monospace';
-  src: url('CenturySchoolbookBT-Monospace.woff') format('woff'),
-       url('CenturySchoolbookBT-Monospace.ttf') format('truetype'),
-       url('CenturySchoolbookBT-Monospace.svg#CenturySchoolbookBT-Monospace') format('svg');
+  src: url('../../../src/fonts/CenturySchoolbookBT-Monospace.woff') format('woff'),
+       url('../../../src/fonts/CenturySchoolbookBT-Monospace.ttf') format('truetype'),
+       url('../../../src/fonts/CenturySchoolbookBT-Monospace.svg#CenturySchoolbookBT-Monospace') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -153,18 +153,18 @@ span{
   justify-content:space-around;
   width: 126.792mm;
   height: 66mm;
-  border: solid black .85pt;
+  border: solid black 1pt;
 
 }
 .main div:not(.title){
-  border: solid black .85pt;
+  border: solid black 1pt;
 	box-sizing: border-box;
   /*margin: 2mm 1.75mm 2mm 1.75mm;*/
 }
 
 .main div p, .title h1{
   /*padding: 2mm 1.75mm 2mm 1.75mm;*/
-	padding: 0mm 1.75mm ;
+	padding: 0mm 1.25mm ;
 	overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -182,18 +182,18 @@ span{
 .col{
   width: 40mm;
   height: 62mm;
-  margin-top: 1.8mm;
-  margin-bottom: 2mm;
+  margin-top: 1.6mm;
+  margin-bottom: 1.6mm;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 .col-1, .col-2{
-  margin-left: 2mm;
+  margin-left: 1.6mm;
 
 }
 .col-3, .col-2{
-  margin-right: 2mm;
+  margin-right: 1.6mm;
 }
 
 
@@ -218,8 +218,8 @@ span{
 }
 
 .main .description p:nth-of-type(1){
- padding: 0mm 3.75mm;
-     margin-top: -2.3mm;
+	padding: 0mm 2.9mm;
+	margin-top: -2.3mm;
 }
 
 
@@ -228,13 +228,16 @@ span{
   /*vertical-align: bottom;*/
 }
 .main .ingredients p:nth-of-type(1){
- padding: 0mm 2mm;
-     margin-top: 0;
+	padding: 0mm 1.15mm;
+  margin-top: 0;
 }
 
 
 .collaborator{
   height: 31.891mm;
+}
+.collaborator p{
+  max-height: 25mm;
 }
 
 
@@ -250,7 +253,7 @@ span{
 
 }
 .main .abv p:nth-of-type(1){
-		padding: 0mm 5.75mm;
+		padding: 0mm 5mm;
 }
 .details{
   height:46.139mm;
@@ -260,7 +263,7 @@ span{
 }
 
 .main .details p:nth-of-type(1){
- padding: 0mm 5.75mm;
+ padding: 0mm 5mm;
  margin-top: -7px;
 }
 
@@ -272,14 +275,14 @@ span{
 }
 
 .main .batch p:nth-of-type(1){
- padding: 0mm 3.75mm;
+ padding: 0mm 3mm;
 }
 .content{
   height: 14.028mm;
 }
 
 .main .content p:nth-of-type(1){
- padding: 0mm 1.9mm;
+ padding: 0mm 1.15mm;
  margin-top: 0;
 }
 
@@ -354,7 +357,13 @@ span{
 }
 
 .replacement{
-	transform:rotate(-90deg) translateX(-67%) translateY(2mm);
+	transform:rotate(-90deg) translateX(-50%);
+	transform-origin: top left;
+	width: 40mm;
+	height: 20mm;
+	position: absolute;
+  left: 2.7mm;
+  bottom: 0;
 }
 
 .col-img .edit{
