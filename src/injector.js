@@ -51,7 +51,9 @@ ipcRenderer.on("setcover",function(event,data){
         var f = document.getElementsByClassName('cover-img')[0];
         var v = require("path").join(__dirname, '../content/image', data.val);
         console.log(v);
-        f.querySelector('.edit').setAttribute('src',v);
+        f.querySelector('.edit').setAttribute('data-src',v);
+        var css = 'background-image:url('+ v +');';
+        f.querySelector('.edit').setAttribute('style',css);
         break;
       default:
 

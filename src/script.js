@@ -55,7 +55,7 @@ ipc.on('print', function(event){
       printBackground: true,
       printSelectionOnly: false,
       landscape: true,
-      pageSize: {height:280000, width:76250}
+      pageSize: {height:280000, width:76000}
     }, function(error , data){
 
       if(error)return console.log(error.message);
