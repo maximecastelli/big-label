@@ -24,7 +24,7 @@
             <p class="edit">
               Aliquam vehicula
             </p>
-            <div name="collaborator-image" class="col-img facultative" data-custom="Add a logo" type="img">
+            <div name="collaborator-image" class="col-img facultative collaboratorimage" data-custom="Add a logo" type="img">
               <img src="" class="edit" alt="">
             </div>
           </div>
@@ -51,7 +51,7 @@
             <h3>ABV</h3>
             <p> <span class="edit">40</span><span>% vol</span> </p>
           </div>
-          <div name="details" class="details" type="string">
+          <div name="production date" class="details" type="string">
             <h3>Production date</h3>
             <p class="edit">14-12-2018</p>
             <div name="batch" class="batch"  type="string">
@@ -74,16 +74,16 @@
           <img src="assets/arrow-43944_960_720.png" class="" alt="">
         </div>
 
-        <div name="text" class="warnings facultative" type="super" data-replacement="replacement">
-          <div name="barcode-image" class="barcode facultative" data-custom="Add a barcode" type="img">
+        <div name="Barcode & Best before" id="barcodebestbefore" class="warnings facultative barcodebestbefore hidden" type="super" data-replacement="replacement">
+          <div name="barcode-image" id="barcodeimage" class="barcode barcodeimage facultative" data-custom="Add a barcode" type="img">
             <img src="assets/Article_-_Les_codes_barres00001.png" class="edit" alt="">
           </div>
-          <div name="best" class="best" type="string">
+          <div name="best before" id="bestbefore" class="best" type="string">
             <span>Best before</span>
             <p class="edit">12.24.24</p>
           </div>
         </div>
-        <div name="replacement" class="replacement conditional hidden" type="long" data-replace="warnings" data-condition="Hide 'WARNINGS' to display this replacement text">
+        <div name="replacement" class="replacement conditional" type="long" data-replace="barcodebestbefore" data-condition="Hide 'Barcode & Best' to display this replacement text">
           <p class="edit">
             Vivamus dolor est, vestibulum a odio vitae, consequat pharetra lectus. In mattis lacus nec egestas scelerisque. Morbi vestibulum massa a orci pellentesque vehicula id ut felis. Etiam semper sed orci ac posuere. Phasellus a pretium dolor. Suspendisse feugiat a nisl in eleifend.
           </p>
@@ -95,25 +95,6 @@
       <!-- Blocs Verso -->
       <section name="Cover">
         <div class="image">
-          <div name="color" class="edit color-layer" type="picker" values="colors">
-            <datalist id="colors" >
-              <option type="color" >1</option>
-              <option type="color" >2</option>
-              <option type="color" >3</option>
-              <option type="color" >4</option>
-              <option type="color" >5</option>
-              <option type="color" >6</option>
-              <option type="color" >7</option>
-              <option type="color" >8</option>
-              <option type="color" >9</option>
-              <option type="color" >10</option>
-              <option type="color" >11</option>
-              <option type="color" >12</option>
-              <option type="color" >13</option>
-
-
-            </datalist>
-          </div>
 
           <div name="cover image" class="cover-img" type="picker" values="pics">
             <datalist id="pics">
@@ -143,6 +124,26 @@
               <option type="image">BIG-Lab_Verso_Trames24.jpg</option>
             </datalist>
             <img src="" class="edit"  alt="">
+          </div>
+
+          <div name="color" class="edit color-layer" type="picker" values="colors">
+            <datalist id="colors" >
+              <option type="color" >1</option>
+              <option type="color" >2</option>
+              <option type="color" >3</option>
+              <option type="color" >4</option>
+              <option type="color" >5</option>
+              <option type="color" >6</option>
+              <option type="color" >7</option>
+              <option type="color" >8</option>
+              <option type="color" >9</option>
+              <option type="color" >10</option>
+              <option type="color" >11</option>
+              <option type="color" >12</option>
+              <option type="color" >13</option>
+
+
+            </datalist>
           </div>
 
         </div>

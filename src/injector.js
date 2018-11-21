@@ -60,7 +60,8 @@ ipcRenderer.on("setcover",function(event,data){
 });
 
 ipcRenderer.on('togglevis', function(event,data){
-  var f = document.getElementsByName(data.id)[0];
+  console.log(data.id.replace(/[^\w\s]/gi, '').toLowerCase().replace(/\s/g, ''));
+  var f = document.getElementsByClassName(data.id.replace(/[^\w\s]/gi, '').toLowerCase().replace(/\s/g, ''))[0];
   f.classList.toggle('hidden');
   console.log(f.getAttribute('data-replacement') );
   if (f.getAttribute('data-replacement') !== null) {

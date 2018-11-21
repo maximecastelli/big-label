@@ -1,13 +1,16 @@
 {
   "name": "big-label",
   "version": "1.0.0",
-  "description": "Label maker for BIG-Lab",
+  "description": "Label maker for B.I.G. Lab",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "postinstall": "electron-rebuild",
-    "build": "electron-packager . big-label && cp icon.icns big-label-darwin-x64/big-label.app/Contents/Resources/electron.icns"
+    "build": "electron-packager . big-label && cp icon.icns big-label-darwin-x64/big-label.app/Contents/Resources/electron.icns",
+    "build-win": "electron-packager /Users/maximecastel_li/Documents/sites/big-label/ big-label --icon=icon.ico --platform=win32 --arch=x64",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . big-label --overwrite --asar --platform=win32 --arch=x64 --icon=icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"big-label\""
   },
   "repository": {
     "type": "git",
@@ -22,7 +25,8 @@
   "devDependencies": {
     "electron": "^2.0.8",
     "electron-packager": "^12.1.2",
-    "electron-rebuild": "^1.8.2"
+    "electron-rebuild": "^1.8.2",
+    "electron-winstaller": "^2.7.0"
   },
   "dependencies": {
     "angular": "^1.7.2",

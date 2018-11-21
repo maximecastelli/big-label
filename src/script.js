@@ -18,10 +18,10 @@ var tm = require('./src/templateManager');
 var ui = require('./src/UIManager');
 
 
-const fontManager = require('font-manager');
+//const fontManager = require('font-manager');
 
-var fonts = fontManager.getAvailableFontsSync();
-console.log('system fonts loaded…');
+//var fonts = fontManager.getAvailableFontsSync();
+//console.log('system fonts loaded…');
 
 
 ///
@@ -55,7 +55,7 @@ ipc.on('print', function(event){
       printBackground: true,
       printSelectionOnly: false,
       landscape: true,
-      pageSize: {height:280000, width:76000}
+      pageSize: {height:280000, width:76250}
     }, function(error , data){
 
       if(error)return console.log(error.message);
@@ -99,7 +99,20 @@ $( function() {
       $('page').removeClass('active');
       $('.page-toggle:checked').closest('page').addClass('active');
     }
+    if($(this).parent().attr('id')== 'barcode--best-before'){
+      if($(this).is(':checked')){
+          //console.log('penis');
+          $('.disabled').removeClass('disabled');
+          $('#barcode-image, #best-before').addClass('disabled');
 
+      } else {
+          //console.log('TOGGLE3');
+          $('.disabled').removeClass('disabled');
+          $('#replacement').addClass('disabled');
+      }
+      $('page').removeClass('active');
+      $('.page-toggle:checked').closest('page').addClass('active');
+    }
 
   });
 });
@@ -143,5 +156,3 @@ tmp.loadTemplate();
 var gui = new ui(tmp);
 gui.scanTemplate();
 gui.create($('#ui'));
-
-$('.verso > section').addClass(active);

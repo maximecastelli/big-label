@@ -48,22 +48,51 @@ table {
 }
 /*@font-face*/
 
+@font-face {
+    font-family: 'Rather';
+    src: url('../../../src/fonts/Rather-Bold.eot');
+    src: url('../../../src/fonts/Rather-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../../../src/fonts/Rather-Bold.woff2') format('woff2'),
+        url('../../../src/fonts/Rather-Bold.woff') format('woff'),
+        url('../../../src/fonts/Rather-Bold.ttf') format('truetype'),
+        url('../../../src/fonts/Rather-Bold.svg#Rather-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
 
 @font-face {
-  font-family: "Rather";
-  src: url("../../../fonts/Rather-Medium.otf") format("otf");
+    font-family: 'Rather';
+    src: url('../../../src/fonts/Rather-SemiBold.eot');
+    src: url('../../../src/fonts/Rather-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../../../src/fonts/Rather-SemiBold.woff2') format('woff2'),
+        url('../../../src/fonts/Rather-SemiBold.woff') format('woff'),
+        url('../../../src/fonts/Rather-SemiBold.ttf') format('truetype'),
+        url('../../../src/fonts/Rather-SemiBold.svg#Rather-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
 }
+
+
+
+
 @font-face {
-  font-family: "Rather";
-  src: url("../../../fonts/Rather-Bold.otf") format("otf");
-  font-weight: bold;
+    font-family: 'Rather';
+    src: url('../../../src/fonts/Rather-Medium.eot');
+    src: url('../../../src/fonts/Rather-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../../../src/fonts/Rather-Medium.woff2') format('woff2'),
+        url('../../../src/fonts/Rather-Medium.woff') format('woff'),
+        url('../../../src/fonts/Rather-Medium.ttf') format('truetype'),
+        url('../../../src/fonts/Rather-Medium.svg#Rather-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
 }
+
 
 @font-face {
   font-family: 'CentSchbookMonoBT';
-  src: url('../../../fonts/CentSchbookMonoBT.eot');
-  src: url('../../../fonts/CentSchbookMonoBT.woff2') format('woff2'),
-       url('../../../fonts/CentSchbookMonoBT.eot?#iefix') format('embedded-opentype');
+  src: url('../../../src/fonts/CentSchbookMonoBT.eot');
+  src: url('../../../src/fonts/CentSchbookMonoBT.woff2') format('woff2'),
+       url('../../../src/fonts/CentSchbookMonoBT.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -95,16 +124,16 @@ h1{
 
   font-size: 13.5pt;
   margin: .5mm 0;
-	line-height: 16.2pt;
+	line-height: 18pt;
 }
 h2{
   font-family: "Rather";
-  font-weight: bold;
+  font-weight: 600;
   font-size: 13.5pt;
 }
 h3{
   font-family: "Rather";
-  font-weight: bold;
+  font-weight: 600;
   font-size: 5.4pt;
   margin: 0;
 }
@@ -135,15 +164,15 @@ span{
 }
 
 .contact{
-  transform: translateY(0.3mm) translateX(-16.45mm) rotate(-90deg);
+  transform: translateX(-17.2mm) rotate(-90deg);
   transform-origin: center;
 
-  width: 66mm;
+  width: 66.5mm;
   display: flex;
   float: left;
   justify-content: space-between;
 
-  margin-right: -46mm;
+  margin-right: -47mm;
 
 }
 
@@ -151,8 +180,8 @@ span{
 	box-sizing: border-box;
   display: flex;
   justify-content:space-around;
-  width: 126.792mm;
-  height: 66mm;
+  width: 127mm;
+  height: 66.5mm;
   border: solid black 1pt;
 
 }
@@ -164,7 +193,7 @@ span{
 
 .main div p, .title h1{
   /*padding: 2mm 1.75mm 2mm 1.75mm;*/
-	padding: 0mm 1.25mm ;
+	padding: 0mm 1.55mm ;
 	overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -176,12 +205,12 @@ span{
 
 .main h3{
 
-  margin: 1.25mm 1.15mm;
+  margin: 1.35mm 1.45mm 0.95mm 1.45mm;
 }
 
 .col{
   width: 40mm;
-  height: 62mm;
+  height: 62.5mm;
   margin-top: 1.6mm;
   margin-bottom: 1.6mm;
   display: flex;
@@ -205,7 +234,7 @@ span{
 
 .description{
   position: relative;
-  height: 62.077mm;
+  height: 62.5mm;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -218,26 +247,27 @@ span{
 }
 
 .main .description p:nth-of-type(1){
-	padding: 0mm 2.9mm;
-	margin-top: -2.3mm;
+	padding: 0mm 3.4mm;
+	margin-top: -2mm;
 }
 
 
 .ingredients{
-  height: 29.93mm;
+  height: 30.1mm;
+  width: 36mm;
   /*vertical-align: bottom;*/
 }
 .main .ingredients p:nth-of-type(1){
-	padding: 0mm 1.15mm;
+	padding: 0mm 1.55mm;
   margin-top: 0;
 }
 
 
 .collaborator{
-  height: 31.891mm;
+  height: 32.1mm;
 }
 .collaborator p{
-  max-height: 25mm;
+  max-height: 26mm;
 }
 
 
@@ -248,41 +278,43 @@ span{
 }
 
 .abv{
-  height: 14.272mm;
-  margin: 0 0 2mm 0;
+  height: 14.4mm;
+	width: 39.8mm;
+  margin: 0 0 1.6mm 0;
 
 }
 .main .abv p:nth-of-type(1){
-		padding: 0mm 5mm;
+		padding: 0mm 5.4mm;
 }
 .details{
-  height:46.139mm;
+  height:46.5mm;
+	width: 39.8mm;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .main .details p:nth-of-type(1){
- padding: 0mm 5mm;
- margin-top: -7px;
+ padding: 0mm 5.4mm;
+ margin-top: -6px;
 }
 
 .batch{
-  height: 29.93mm;
+  height: 30.1mm;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .main .batch p:nth-of-type(1){
- padding: 0mm 3mm;
+ padding: 0mm 3.4mm;
 }
 .content{
-  height: 14.028mm;
+  height: 14.1mm;
 }
 
 .main .content p:nth-of-type(1){
- padding: 0mm 1.15mm;
+ padding: 0mm 1.55mm;
  margin-top: 0;
 }
 
@@ -337,7 +369,7 @@ span{
 }
 .best p{
 	position: absolute;
-	top:3.14mm;
+	top:2.74mm;
 
 }
 
@@ -354,6 +386,11 @@ span{
 
 	width:7.8mm;
 	margin-bottom: 1.25mm;
+}
+
+.mentions img:nth-child(2) {
+    width: 7mm;
+    margin: 0 0.4mm;
 }
 
 .replacement{

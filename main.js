@@ -1,3 +1,11 @@
+/*
+const setupEvents = require('./installers/setupEvents')
+if (setupEvents.handleSquirrelEvent()) {
+   // squirrel event handled and app will exit in 1000ms, so don't do anything else
+   return;
+}
+*/
+
 const {app, BrowserWindow, Menu} = require('electron')
 
 const electron = require('electron')
@@ -27,7 +35,7 @@ const url = require('url')
     win.loadFile('index.html')
 
     // Ouvre les DevTools.
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
 
     // Émit lorsque la fenêtre est fermée.
     win.on('closed', () => {

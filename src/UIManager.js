@@ -57,6 +57,9 @@ UIManager.prototype.scanTemplate = function(){
           this.recto = new face('recto', $(this.scan).find('.recto'));
           this.verso = new face('verso', $(this.scan).find('.verso'));
           this.recto.create(this.interface);
+          $('#barcode-image, #best-before').addClass('disabled');
+          $(".super > input[type='checkbox']").prop("checked", true);
+
           this.verso.create(this.interface);
       } else {
           console.log(err);
@@ -68,7 +71,6 @@ UIManager.prototype.scanTemplate = function(){
 UIManager.prototype.create = function(loc){
   //
   loc.append(this.interface);
-
 
 }
 
@@ -168,11 +170,12 @@ section.prototype.setFields = function(){
   for(var i=0;i<f.length;i++){
 
     var sel ='#'+f[i].getAttribute('values');
-    console.log('setfields::'+$(f[i]).hasClass('facultative'));
+    //console.log('setfields::'+$(f[i]).hasClass('facultative'));
     var custom = '';
     if(f[i].hasAttribute('data-custom')){ custom = f[i].getAttribute('data-custom');}
 
     if(f[i].hasAttribute('values'))console.log($(f[i]).find(sel));
+
     if(f[i].hasAttribute('values')) out[i] = new field(f[i].getAttribute('name') ,f[i].getAttribute('name') ,f[i].getAttribute('type'),'edit',$(f[i]).hasClass('facultative'),$(f[i]).find(sel).children(),custom);
     else out[i] = new field(f[i].getAttribute('name'),f[i].getAttribute('name'),f[i].getAttribute('type'),'edit',$(f[i]).hasClass('facultative'),'',custom);
     var om = out[i].make();
@@ -223,7 +226,8 @@ field.prototype.make = function(){
   var l = document.createElement('label');
   var i = document.createElement('input');
   l.name = this.id;
-  form.id = this.id;
+  //
+  form.id = this.id.replace(/\s/g, '-').replace(/[^A-Za-z-]/g, "").toLowerCase();
   i.required = true;
   console.log(this.facultative);
   switch(this.type){

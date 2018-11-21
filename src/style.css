@@ -48,7 +48,7 @@ table {
 }
 
 /*   ---   END RESET   ---   */
-
+/*
 @font-face {
   font-family: "Rather";
   src: url("/fonts/Rather-Medium.otf") format("otf");
@@ -59,6 +59,29 @@ table {
   font-family: "Rather";
   src: url("/fonts/Rather-Bold.otf") format("otf");
   font-weight: bold;
+}*/
+@font-face {
+    font-family: 'Rather';
+    src: url('fonts/Rather-Bold.eot');
+    src: url('fonts/Rather-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Rather-Bold.woff2') format('woff2'),
+        url('fonts/Rather-Bold.woff') format('woff'),
+        url('fonts/Rather-Bold.ttf') format('truetype'),
+        url('fonts/Rather-Bold.svg#Rather-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rather';
+    src: url('fonts/Rather-Medium.eot');
+    src: url('fonts/Rather-Medium.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Rather-Medium.woff2') format('woff2'),
+        url('fonts/Rather-Medium.woff') format('woff'),
+        url('fonts/Rather-Medium.ttf') format('truetype'),
+        url('fonts/Rather-Medium.svg#Rather-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
 }
 
 
@@ -277,6 +300,9 @@ body{
 }
 
 page input[class*='-toggle']{
+		-webkit-appearance: none;
+		-moz-appearance:    none;
+		appearance:         none;
 		margin: 20px 0 0 0;
 		width: 25vw;
 		height: 3vh;
@@ -286,6 +312,9 @@ page input[class*='-toggle']{
     left: -99px;
 }
 section input[class*='-toggle']{
+		-webkit-appearance: none;
+		-moz-appearance:    none;
+		appearance:         none;
 		width: 20vw;
 		height: 3vh;
     position: absolute;
@@ -326,14 +355,14 @@ input[class*='-toggle']:after {
 input.visibility{
 	position: absolute;
 	top: 10px;
-	right: 40px;
+	right: 25px;
 	z-index: 9999;
 	appearance:none;
 	-webkit-appearance:none;
 }
 input.visibility::before{
 	content:'';
-	background: url('ui/core/invisible.png');/*url of image*/
+	background: url('ui/core/visible.png');/*url of image*/
 	background-size: cover;
 	position: absolute;
 	width: 30px;
@@ -342,7 +371,7 @@ input.visibility::before{
 }
 input.visibility:checked::before{
 	content:'';
-	background: url('ui/core/visible.png');/*url of image*/
+	background: url('ui/core/invisible.png');/*url of image*/
 	background-size: contain;
 	position: absolute;
 	width: 30px;
@@ -513,6 +542,14 @@ h5{
 	margin: 10px 0;
 	font-size: 10px;
 	color: #5264AE;
+}
+
+
+
+/*DISABLED*/
+
+.disabled{
+	opacity: .32;
 }
 
 /* ANIMATIONS ================ */
